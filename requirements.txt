@@ -1,5 +1,5 @@
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.7.0+cpu
-mudes==0.2.1
+mudes==0.2.2
 streamlit==0.72.0
 st-annotated-text==1.0.1
