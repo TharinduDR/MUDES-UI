@@ -5,7 +5,7 @@ from annotated_text import annotated_text
 from mudes.app.mudes_app import MUDESApp
 import pandas as pd
 
-en_base = MUDESApp("en-base", use_cuda=False)
+en_base = MUDESApp("small", use_cuda=False)
 en_large = MUDESApp("en-large", use_cuda=False)
 multi_lingual_base = MUDESApp("multilingual-base", use_cuda=False)
 multi_lingual_large = MUDESApp("multilingual-large", use_cuda=False)
