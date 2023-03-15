@@ -6,9 +6,9 @@ from mudes.app.mudes_app import MUDESApp
 import pandas as pd
 
 en_base = MUDESApp("small", use_cuda=False)
-# en_large = MUDESApp("en-large", use_cuda=False)
-# multi_lingual_base = MUDESApp("multilingual-base", use_cuda=False)
-# multi_lingual_large = MUDESApp("multilingual-large", use_cuda=False)
+en_large = MUDESApp("en-large", use_cuda=False)
+multi_lingual_base = MUDESApp("multilingual-base", use_cuda=False)
+multi_lingual_large = MUDESApp("multilingual-large", use_cuda=False)
 
 
 def toxic_to_rgb(is_toxic: bool):
@@ -56,14 +56,14 @@ def get_model(model_name):
     if model_name == "en-base":
         return en_base
 
-    # if model_name == "en-large":
-    #     return en_large
-    #
-    # if model_name == "multilingual-base":
-    #     return multi_lingual_base
-    #
-    # if model_name == "multilingual-large":
-    #     return multi_lingual_large
+    if model_name == "en-large":
+        return en_large
+
+    if model_name == "multilingual-base":
+        return multi_lingual_base
+
+    if model_name == "multilingual-large":
+        return multi_lingual_large
 
     else:
         return None
@@ -93,7 +93,7 @@ def main():
     st.sidebar.header("Available Datasets")
     selected_dataset_name = st.sidebar.radio(
         'Select a dataset to use',
-        ["Civil Comments Dataset", "OLID"]
+        ["Civil Comments Dataset", "OLID", "OGDT", "Danish"]
     )
 
     df = get_data(selected_dataset_name)
@@ -103,7 +103,7 @@ def main():
     st.sidebar.header("Available Models")
     selected_model = st.sidebar.radio(
         'Select a pretrained model to use',
-        ["en-base"],
+        ["en-base", "en-large", "multilingual-base", "multilingual-large"],
     )
 
     model = get_model(selected_model)
